@@ -2,24 +2,30 @@ var fs = require('fs')
   , assert = require('assert')
   , AssetCombiner = require('../lib');
 
-
 var assetCombiner = new AssetCombiner({
+  main: [{
+    output: 'application.js',
+    sources: ['javascripts/script.js', 'javascripts/script.coffee']
+  }, {
+    output: 'application.css',
+    sources: ['stylesheets/sheet.css', 'stylesheets/sheet.less']
+  }],
+  assets: [{
+    output: 'modernizr.js',
+    sources: ['javascripts/modernizr.js']
+  }]
+}, {
   assetPath: './test/fixtures',
   publicPath: './test/tmp',
-  headerComment: "/**!\n * Copyright (c) " + (new Date().getFullYear()) + " Fetch! http://www.fetch.nl\n * This file is generated, manual edits eventually will be overwritten.\n */",
-  javascripts: {
-    'application.js': ['javascripts/script.js', 'javascripts/script.coffee']
-  },
-  stylesheets: {
-    'application.css': ['stylesheets/sheet.css', 'stylesheets/sheet.less']
-  },
-  javascript_assets: {
-    'public/javascripts/modernizr.js': ['app/assets/javascripts/lib/modernizr.js']
-  },
-  stylesheet_assets: {
-    'public/stylesheets/assets.css': ['app/assets/stylesheets/normalize.css']
+  headerComment: function(filename){
+    return [
+      "/**!",
+      " * Copyright (c) " + (new Date().getFullYear()) + " Fetch! http://www.fetch.nl",
+      " * This file is generated, manual edits eventually will be overwritten.",
+      " */"].join("\n");
   }
 });
 
 
-assetCombiner.watch();
+assetCombiner.build('assets', 'main');
+assetCombiner.watch('main');
