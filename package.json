@@ -1,6 +1,6 @@
 {
   "name": "asset-combiner",
-  "description": "A simple, attractive code quality tool for CSS built on top of LESS",
+  "description": "Node module for compiling and combining CoffeeScript and Javascript, and also LESS and CSS (using RECESS)",
   "version": "0.1.0",
   "author": "Koen Punt <koen@fetch.nl> (https://github.com/koenpunt)",
   "main": "./lib",
@@ -11,7 +11,6 @@
     "recess": "git://github.com/koenpunt/recess.git#error-handling",
     "glob": "~3.1.21",
     "uglify-js": "~2.2.5",
-    "cli-color": "~0.2.2",
     "node-watch": "~0.3.1",
     "coffee-script": "~1.6.2",
     "less": "~1.3.3",
@@ -19,6 +18,5 @@
     "ycssmin": "~1.0.1",
     "underscore": "~1.4.4",
     "async": "~0.2.6",
-    "step": "0.0.5"
   }
 }
