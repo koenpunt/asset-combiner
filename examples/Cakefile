@@ -1,0 +1,47 @@
+AssetCombiner = require('asset-combiner')
+
+assetCombiner = new AssetCombiner({
+  main: [
+    {
+      output: 'application.js'
+      sources: [
+        'javascripts/script.js'
+        'javascripts/script.coffee'
+      ]
+    },
+    {
+      output: 'application.css'
+      sources: [
+        'stylesheets/sheet.css'
+        'stylesheets/sheet.less'
+      ]
+    }
+  ],
+  assets: [
+    {
+      output: 'modernizr.js'
+      sources: [
+        'javascripts/modernizr.js'
+      ]
+    }
+  ]
+}, {
+  assetPath: './test/fixtures'
+  publicPath: './test/tmp'
+  headerComment: (filename) ->
+    return [
+      "/**!",
+      " * Copyright (c) " + (new Date().getFullYear()) + " Fetch! http://www.fetch.nl",
+      " * This file is generated, manual edits eventually will be overwritten.",
+      " */"].join("\n")
+})
+
+task 'build', 'build from source', ->
+  assetCombiner.build 'main'
+
+task 'build_assets', 'build less frequently changed assets manually', ->
+  assetCombiner.build 'assets'
+
+task 'watch', 'watch source files for changes and build', ->
+  assetCombiner.watch 'main'
+

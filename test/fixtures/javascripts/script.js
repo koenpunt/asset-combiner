@@ -1,3 +1,3 @@
-function example(){
-  return 'example';
+function js_example(){
+  return 'js_example';
 }
