@@ -3,18 +3,13 @@ var fs = require('fs')
   , AssetCombiner = require('../lib');
 
 var assetCombiner = new AssetCombiner({
-  main: [{
-    output: 'application.js',
-    sources: ['javascripts/script.js', 'javascripts/script.coffee']
-  }, {
-    output: 'application.css',
-    sources: ['stylesheets/sheet.css', 'stylesheets/sheet.less'],
-    // options: { compress: false }
-  }],
-  assets: [{
-    output: 'modernizr.js',
-    sources: ['javascripts/modernizr.js']
-  }]
+  main: {
+    'application.js': ['javascripts/script.js', 'javascripts/script.coffee'],
+    'application.css': ['stylesheets/sheet.css', 'stylesheets/sheet.less']
+  },
+  assets: {
+    'modernizr.js': ['javascripts/modernizr.js']
+  }
 }, {
   assetPath: './test/fixtures',
   publicPath: './test/tmp',
