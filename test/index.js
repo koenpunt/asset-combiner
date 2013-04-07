@@ -8,7 +8,8 @@ var assetCombiner = new AssetCombiner({
     sources: ['javascripts/script.js', 'javascripts/script.coffee']
   }, {
     output: 'application.css',
-    sources: ['stylesheets/sheet.css', 'stylesheets/sheet.less']
+    sources: ['stylesheets/sheet.css', 'stylesheets/sheet.less'],
+    // options: { compress: false }
   }],
   assets: [{
     output: 'modernizr.js',
