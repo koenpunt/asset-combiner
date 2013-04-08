@@ -22,6 +22,5 @@ var assetCombiner = new AssetCombiner({
   }
 });
 
-
 assetCombiner.build('assets', 'main');
 assetCombiner.watch('main');
