@@ -1,7 +1,7 @@
 {
   "name": "asset-combiner",
   "description": "Node module for compiling and combining CoffeeScript and Javascript, and also LESS and CSS (using RECESS)",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Koen Punt <koen@fetch.nl> (https://github.com/koenpunt)",
   "main": "./lib",
   "scripts": {
